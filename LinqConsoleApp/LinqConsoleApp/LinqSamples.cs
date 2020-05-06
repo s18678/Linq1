@@ -416,8 +416,17 @@ namespace LinqConsoleApp
             Console.WriteLine("\n\nP10");
             
 
- 
-            
+            var res = Emps.Union(new Emp[] { new Emp{ Ename = "Brak Wartości", Job = null, HireDate = null } }).Select(x => new
+            {
+                Imie = x.Ename,
+                Praca = x.Job,
+                DataZ = x.HireDate,
+            });
+
+            foreach (var x in res)
+            {
+                Console.WriteLine(x);
+            }
         }
 
         //Znajdź pracownika z najwyższą pensją wykorzystując metodę Aggregate()
